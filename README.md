@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.com/ollebergkvist/api-movie.svg?branch=main)](https://travis-ci.com/ollebergkvist/api-movie)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ollebergkvist/api-movie/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/ollebergkvist/api-movie/?branch=main)
-[![Code Coverage](https://scrutinizer-ci.com/g/ollebergkvist/api-movie/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/ollebergkvist/api-movie/?branch=main)
-[![Build Status](https://scrutinizer-ci.com/g/ollebergkvist/api-movie/badges/build.png?b=main)](https://scrutinizer-ci.com/g/ollebergkvist/api-movie/build-status/main)
+[![Build Status](https://travis-ci.com/ollebergkvist/api-movies.svg?branch=main)](https://travis-ci.com/ollebergkvist/api-movies)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ollebergkvist/api-movies/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/ollebergkvist/api-movies/?branch=main)
+[![Code Coverage](https://scrutinizer-ci.com/g/ollebergkvist/api-movies/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/ollebergkvist/api-movies/?branch=main)
+[![Build Status](https://scrutinizer-ci.com/g/ollebergkvist/api-movies/badges/build.png?b=main)](https://scrutinizer-ci.com/g/ollebergkvist/api-movies/build-status/main)
 
 # Install
 

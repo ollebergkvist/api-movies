@@ -51,3 +51,6 @@
 {"level":"info","date":"2021-3-16 8:16:3","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
 {"level":"info","date":"2021-3-16 8:16:3","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
 {"level":"info","date":"2021-3-16 8:16:3","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-16 8:37:46","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-16 8:37:46","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-16 8:37:46","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
