@@ -1,0 +1,53 @@
+{"level":"info","date":"2021-3-15 19:17:13","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:18:9","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:19:8","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:21:8","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:21:20","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:22:57","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:23:11","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:25:36","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:26:23","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:30:3","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:30:40","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:30:56","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:32:44","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:33:47","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:34:5","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:35:27","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:39:21","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:39:40","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:40:29","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:41:3","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:41:25","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:43:28","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:44:27","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:46:3","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:46:33","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:48:10","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:48:38","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:49:42","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:50:11","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:50:11","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-15 19:51:20","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:51:20","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-15 19:51:41","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:51:41","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-15 19:51:41","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-15 19:53:33","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:53:33","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-15 19:53:33","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-15 19:57:20","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:57:20","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-15 19:57:20","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-15 19:59:4","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:59:4","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-15 19:59:4","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-15 19:59:30","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-15 19:59:30","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-15 19:59:30","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-16 8:5:30","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-16 8:5:31","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-16 8:5:31","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-16 8:16:3","type":"Movie titel, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-16 8:16:3","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-16 8:16:3","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
