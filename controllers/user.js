@@ -7,7 +7,7 @@ const userSchema = require('../schemas/user.js'); // User mongoose schema
 const Movie = require('../schemas/movie.js'); // Movie mongoose schema
 const randomToken = require('random-token');
 const nodemailer = require('nodemailer');
-const smtpTransport = require('nodemailer-smtp-transport');
+const smtpTransport = require('nodemailer-sendgrid-transport');
 
 // Controller for updating a user´s rights
 const updateUserRights = async (req, res) => {
@@ -236,20 +236,19 @@ const forgotPassword = async (req, res) => {
 			user.resetPasswordExpires = Date.now() + 3600000;
 			await user.save();
 
+			// Auth for send grid transport
+			const options = {
+				auth: {
+					api_key: process.env.SENDGRID_API,
+				},
+			};
+
 			// SMTP setup
-			const transport = nodemailer.createTransport(
-				smtpTransport({
-					service: 'SendGrid',
-					auth: {
-						user: process.env.SENDGRID_USERNAME,
-						pass: process.env.SENDGRID_PASSWORD,
-					},
-				})
-			);
+			const transport = nodemailer.createTransport(smtpTransport(options));
 
 			// Message
 			const message = {
-				to: 'ollebergkvist@gmail.com',
+				to: user.email,
 				from: 'hello@ollebergkvist.com',
 				subject: 'API-Movies Password Reset',
 				text:
@@ -264,15 +263,7 @@ const forgotPassword = async (req, res) => {
 			};
 
 			// Sends email
-			const info = await transport.sendMail(message);
-
-			console.log('Message sent: %s', info.messageId);
-
-			// 	// Creates jwt token
-			// 	const payload = { email: user.email, admin: user.admin };
-			// 	const token = jwt.sign(payload, secret, {
-			// 		expiresIn: '24h',
-			// 	});
+			await transport.sendMail(message);
 		}
 	} catch (err) {
 		return res.status(500).json({
