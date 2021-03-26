@@ -311,8 +311,26 @@ const resetPassword = async (req, res) => {
 				detail: 'Password reset token is invalid or has expired',
 			});
 		} else {
+			// Number of salt rounds
+			const saltRounds = 10;
+
+			// Try to hash password
+			try {
+				var hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
+			} catch (err) {
+				return res.status(500).json({
+					errors: {
+						status: '500',
+						type: 'Error',
+						source: req.path,
+						title: 'Bcrypt error',
+						detail: 'Bcrypt was unable to hash password',
+					},
+				});
+			}
+
 			// Saves new password and resets token and expiry
-			user.password = req.body.password;
+			user.password = hashedPassword;
 			user.resetPasswordToken = undefined;
 			user.resetPasswordExpires = undefined;
 			await user.save();
