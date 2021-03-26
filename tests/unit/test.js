@@ -155,6 +155,42 @@ describe('POST /register', () => {
 	});
 });
 
+describe('POST /forgot', () => {
+	it('should get 400 as we do not provide email', (done) => {
+		let user = {
+			// email: 'test@example.com',
+		};
+
+		chai
+			.request(server)
+			.post('/api/forgot')
+			.send(user)
+			.end((err, res) => {
+				res.should.have.status(400);
+				res.body.should.be.an('object');
+
+				done();
+			});
+	});
+
+	it('should get 201 as user was registered', (done) => {
+		let user = {
+			email: 'test@example.com',
+		};
+
+		chai
+			.request(server)
+			.post('/api/forgot')
+			.send(user)
+			.end((err, res) => {
+				res.should.have.status(201);
+				res.body.should.be.an('object');
+
+				done();
+			});
+	});
+});
+
 describe('POST /login', () => {
 	it('should get 400 as we do not provide email', (done) => {
 		let user = {
