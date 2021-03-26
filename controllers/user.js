@@ -265,9 +265,13 @@ const forgotPassword = async (req, res) => {
 			// Sends email
 			await transport.sendMail(message, (error, result) => {
 				if (error) {
-					res.send(error);
-				} else {
-					res.send('email sent');
+					res.status(400).send({
+						status: '400',
+						type: 'Error',
+						source: req.path,
+						title: 'SendGrid error',
+						detail: error,
+					});
 				}
 			});
 		}
@@ -282,12 +286,13 @@ const forgotPassword = async (req, res) => {
 	}
 };
 
-// Controller for login
 const resetPassword = async (req, res) => {
-	const secret = process.env.SECRET;
 	try {
 		// Try to find a user with given email
-		const user = await userSchema.findOne({ email: req.body.email });
+		const user = await userSchema.findOne({
+			resetPasswordToken: req.params.token,
+			resetPasswordExpires: { $gt: Date.now() },
+		});
 
 		// Error handling if a user with given email was not found
 		if (!user) {
@@ -296,46 +301,55 @@ const resetPassword = async (req, res) => {
 				type: 'Error',
 				source: req.path,
 				title: 'Authorization error',
-				detail: 'Account with given email was not found.',
+				detail: 'Password reset token is invalid or has expired.',
 			});
 		} else {
-			// Compares password from http request with password in db
-			bcrypt.compare(req.body.password, user.password, (err, result) => {
-				if (err) {
-					return res.status(500).json({
-						status: '500',
+			// Saves new password and resets token and expiry
+			user.password = req.body.password;
+			user.resetPasswordToken = undefined;
+			user.resetPasswordExpires = undefined;
+			await user.save();
+
+			// Auth for send grid transport
+			const options = {
+				auth: {
+					api_key: process.env.SENDGRID_API,
+				},
+			};
+
+			// SMTP setup
+			const transport = nodemailer.createTransport(smtpTransport(options));
+
+			// Message
+			const message = {
+				to: user.email,
+				from: 'hello@ollebergkvist.com',
+				subject: 'Your password has been changed',
+				text:
+					'Hello,\n\n' +
+					'This is a confirmation that the password for your account ' +
+					user.email +
+					' has just been changed.\n',
+			};
+
+			// Sends email
+			await transport.sendMail(message, (error, result) => {
+				if (error) {
+					res.status(400).send({
+						status: '400',
 						type: 'Error',
 						source: req.path,
-						title: 'Bcrypt error',
-						detail: 'Bcrypt was unable to compare passwords',
+						title: 'SendGrid error',
+						detail: error,
 					});
-				}
-
-				if (!result) {
-					return res.status(401).json({
-						status: '401',
-						type: 'Error',
+				} else {
+					res.status(201).send({
+						status: '201',
+						type: 'Success',
 						source: req.path,
-						title: 'Authorization error',
-						detail: 'Wrong password',
+						detail: 'Password successfully updated',
 					});
 				}
-
-				// Creates jwt token
-				const payload = { email: user.email, admin: user.admin };
-				const token = jwt.sign(payload, secret, {
-					expiresIn: '24h',
-				});
-
-				return res.status(200).json({
-					status: '200',
-					type: 'Success',
-					source: req.path,
-					detail: 'User logged in',
-					user: user.email,
-					admin: user.admin,
-					token: token,
-				});
 			});
 		}
 	} catch (err) {
