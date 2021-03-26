@@ -263,7 +263,13 @@ const forgotPassword = async (req, res) => {
 			};
 
 			// Sends email
-			await transport.sendMail(message);
+			await transport.sendMail(message, (error, result) => {
+				if (error) {
+					res.send(error);
+				} else {
+					res.send('email sent');
+				}
+			});
 		}
 	} catch (err) {
 		return res.status(500).json({
