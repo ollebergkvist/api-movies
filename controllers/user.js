@@ -8,6 +8,7 @@ const Movie = require('../schemas/movie.js'); // Movie mongoose schema
 const randomToken = require('random-token');
 const nodemailer = require('nodemailer');
 const smtpTransport = require('nodemailer-sendgrid-transport');
+const sendEmail = require('../models/send_email.js');
 
 // Controller for updating a user´s rights
 const updateUserRights = async (req, res) => {
@@ -113,6 +114,7 @@ const register = async (req, res) => {
 			email: req.body.email,
 			password: hashedPassword,
 			admin: req.body.admin,
+			uniqueString: randomToken(16),
 		});
 
 		// Checks if email address is registered already
@@ -128,6 +130,10 @@ const register = async (req, res) => {
 		} else {
 			// Saves new user
 			await newUser.save();
+
+			// Sends confirmation email
+			await sendEmail(newUser.email, newUser.uniqueString);
+
 			return res.status(201).send({
 				status: '201',
 				type: 'Success',
@@ -142,6 +148,45 @@ const register = async (req, res) => {
 			source: req.path,
 			title: 'Database error',
 			message: err.message,
+		});
+	}
+};
+
+// Controller for verify
+const verify = async (req, res) => {
+	try {
+		const { uniqueString } = req.params;
+
+		// Try to find a user with given email
+		const user = await userSchema.findOne({ uniqueString: uniqueString });
+
+		// Error handling if a user with given email was not found
+		if (!user) {
+			res.status(400).send({
+				status: '400',
+				type: 'Error',
+				source: req.path,
+				title: 'Authorization error',
+				detail: 'String could not be validated.',
+			});
+		} else {
+			user.isActivated = true;
+			await user.save();
+
+			return res.status(201).send({
+				status: '201',
+				type: 'Success',
+				source: req.path,
+				detail: 'Account successfully activated',
+			});
+		}
+	} catch (err) {
+		return res.status(500).json({
+			status: '500',
+			type: 'Error',
+			source: req.path,
+			title: 'Database error',
+			detail: err.message,
 		});
 	}
 };
@@ -254,9 +299,7 @@ const forgotPassword = async (req, res) => {
 				text:
 					'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
 					'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-					'http://' +
-					req.headers.host +
-					'/api/reset/' +
+					'https://api-movies-ollebergkvist.herokuapp.com/api/reset/' +
 					token +
 					'\n\n' +
 					'If you did not request this, please ignore this email and your password will remain unchanged.\n',
@@ -388,6 +431,39 @@ const resetPassword = async (req, res) => {
 	}
 };
 
+const reset = async (req, res) => {
+	try {
+		// Try to find a user with given email
+		const user = await userSchema.findOne({
+			resetPasswordToken: req.params.token,
+			resetPasswordExpires: { $gt: Date.now() },
+		});
+
+		// Error handling if a user with given email was not found
+		if (!user) {
+			res.status(400).send({
+				status: '400',
+				type: 'Error',
+				source: req.path,
+				title: 'Authorization error',
+				detail: 'Password reset token is invalid or has expired',
+			});
+		} else {
+			res.render('reset', {
+				user: req.user,
+			});
+		}
+	} catch (err) {
+		return res.status(500).json({
+			status: '500',
+			type: 'Error',
+			source: req.path,
+			title: 'Database error',
+			detail: err.message,
+		});
+	}
+};
+
 // Controller for adding a favorite movie to user's favorites and increments given movie's number of likes
 const addFavoriteMovie = async (req, res) => {
 	try {
@@ -473,4 +549,6 @@ module.exports = {
 	addFavoriteMovie,
 	forgotPassword,
 	resetPassword,
+	reset,
+	verify,
 };

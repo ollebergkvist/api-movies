@@ -14,6 +14,8 @@ const userSchema = new schema(
 		],
 		resetPasswordToken: { type: String },
 		resetPasswordExpires: { type: Date },
+		uniqueString: { type: String },
+		isActivated: { type: Boolean, default: false },
 	},
 	{ timestamps: true }
 );

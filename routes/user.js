@@ -38,6 +38,13 @@ router.post(
 	userController.register
 );
 
+// Verify
+router.get(
+	'/verify/:uniqueString',
+	// validator.body(schemas.verify),
+	userController.verify
+);
+
 // Login
 router.post('/login', validator.body(schemas.login), userController.login);
 
@@ -47,6 +54,9 @@ router.post(
 	validator.body(schemas.forgot),
 	userController.forgotPassword
 );
+
+// Reset
+router.get('/reset/:token', userController.reset);
 
 // Reset
 router.post(
