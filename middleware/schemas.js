@@ -60,6 +60,9 @@ const schemas = {
 		email: Joi.string().email().required(),
 		password: Joi.string().required(),
 	}),
+	forgot: Joi.object({
+		email: Joi.string().email().required(),
+	}),
 	updateUser: Joi.object({
 		admin: Joi.boolean().required(), //Updatera denna
 	}),

@@ -12,6 +12,8 @@ const userSchema = new schema(
 				movieID: { type: String },
 			},
 		],
+		resetPasswordToken: { type: String },
+		resetPasswordExpires: { type: Date },
 	},
 	{ timestamps: true }
 );

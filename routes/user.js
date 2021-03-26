@@ -41,6 +41,20 @@ router.post(
 // Login
 router.post('/login', validator.body(schemas.login), userController.login);
 
+// Forgot
+router.post(
+	'/forgot',
+	validator.body(schemas.forgot),
+	userController.forgotPassword
+);
+
+// Reset
+router.post(
+	'/reset',
+	// validator.body(schemas.register),
+	userController.resetPassword
+);
+
 // Like movie
 // Registered users
 router.put(

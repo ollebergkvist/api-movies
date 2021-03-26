@@ -424,7 +424,7 @@ const availability = async (req, res) => {
 	try {
 		const movie = await Movie.findByIdAndUpdate(
 			req.params.id,
-			{ availability: 'true' },
+			{ availability: true },
 			{ new: true }
 		);
 
