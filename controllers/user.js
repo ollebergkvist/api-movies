@@ -110,6 +110,7 @@ const register = async (req, res) => {
 
 	// Try to create user
 	try {
+		// Declares new user schema
 		const newUser = new userSchema({
 			email: req.body.email,
 			password: hashedPassword,
@@ -134,6 +135,7 @@ const register = async (req, res) => {
 			// Sends confirmation email
 			await sendEmail(newUser.email, newUser.uniqueString);
 
+			// Returns status and body
 			return res.status(201).send({
 				status: '201',
 				type: 'Success',
@@ -142,6 +144,7 @@ const register = async (req, res) => {
 			});
 		}
 	} catch (err) {
+		// Returns status and body
 		return res.status(500).send({
 			status: '500',
 			type: 'Error',

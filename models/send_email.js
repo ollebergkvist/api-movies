@@ -1,5 +1,4 @@
 // Module to send email
-
 const nodemailer = require('nodemailer');
 const smtpTransport = require('nodemailer-sendgrid-transport');
 
@@ -48,4 +47,4 @@ const sendEmail = async (email, uniqueString) => {
 	});
 };
 
-module.exports = { sendEmail };
+module.exports = sendEmail;
