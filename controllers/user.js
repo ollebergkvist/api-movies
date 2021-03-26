@@ -171,6 +171,7 @@ const verify = async (req, res) => {
 			});
 		} else {
 			user.isActivated = true;
+			user.uniqueString = undefined;
 			await user.save();
 
 			return res.status(201).send({
