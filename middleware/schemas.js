@@ -63,6 +63,9 @@ const schemas = {
 	forgot: Joi.object({
 		email: Joi.string().email().required(),
 	}),
+	reset: Joi.object({
+		password: passwordComplexity(complexityOptions).required(),
+	}),
 	updateUser: Joi.object({
 		admin: Joi.boolean().required(), //Updatera denna
 	}),

@@ -51,7 +51,7 @@ router.post(
 // Reset
 router.post(
 	'/reset/:token',
-	// validator.body(schemas.register),
+	validator.body(schemas.reset),
 	userController.resetPassword
 );
 
