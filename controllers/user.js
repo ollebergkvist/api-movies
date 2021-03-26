@@ -272,6 +272,13 @@ const forgotPassword = async (req, res) => {
 						title: 'SendGrid error',
 						detail: error,
 					});
+				} else {
+					res.status(201).send({
+						status: '201',
+						type: 'Success',
+						source: req.path,
+						detail: 'Email to reset password successfully sent',
+					});
 				}
 			});
 		}
@@ -301,7 +308,7 @@ const resetPassword = async (req, res) => {
 				type: 'Error',
 				source: req.path,
 				title: 'Authorization error',
-				detail: 'Password reset token is invalid or has expired.',
+				detail: 'Password reset token is invalid or has expired',
 			});
 		} else {
 			// Saves new password and resets token and expiry
