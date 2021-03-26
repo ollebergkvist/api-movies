@@ -7,6 +7,7 @@ const userSchema = require('../schemas/user.js'); // User mongoose schema
 const Movie = require('../schemas/movie.js'); // Movie mongoose schema
 const randomToken = require('random-token');
 const nodemailer = require('nodemailer');
+const smtpTransport = require('nodemailer-smtp-transport');
 
 // Controller for updating a user´s rights
 const updateUserRights = async (req, res) => {
@@ -236,16 +237,18 @@ const forgotPassword = async (req, res) => {
 			await user.save();
 
 			// SMTP setup
-			const smtp = nodemailer.createTransport('SMTP', {
-				service: 'SendGrid',
-				auth: {
-					user: process.env.SENDGRID_USERNAME,
-					pass: process.env.SENDGRID_PASSWORD,
-				},
-			});
+			const transport = nodemailer.createTransport(
+				smtpTransport({
+					service: 'SendGrid',
+					auth: {
+						user: process.env.SENDGRID_USERNAME,
+						pass: process.env.SENDGRID_PASSWORD,
+					},
+				})
+			);
 
-			// Mail options
-			const mailOptions = {
+			// Message
+			const message = {
 				to: 'ollebergkvist@gmail.com',
 				from: 'hello@ollebergkvist.com',
 				subject: 'API-Movies Password Reset',
@@ -261,7 +264,7 @@ const forgotPassword = async (req, res) => {
 			};
 
 			// Sends email
-			const info = await smtp.sendMail(mailOptions);
+			const info = await transport.sendMail(message);
 
 			console.log('Message sent: %s', info.messageId);
 
