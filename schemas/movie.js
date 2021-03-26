@@ -11,7 +11,7 @@ const movieSchema = new schema(
 		stock: { type: Number, minimum: 0, default: 5 },
 		rental_price: { type: Number, default: 10 },
 		sales_price: { type: Number, default: 20 },
-		availability: { type: String, default: 'true' },
+		availability: { type: Boolean, default: true },
 		likes: { type: Number, default: 0 },
 	},
 	{ timestamps: true }

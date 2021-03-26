@@ -47,7 +47,7 @@ const setLoggingData = async (...queries) => {
 		options = {
 			level: 'info',
 			date: currentDateAndTime,
-			type: 'Movie titel, sales and rental price update',
+			type: 'Movie title, sales and rental price update',
 			title: movieTitle,
 			sales_price: salesPriceStringified,
 			rental_price: rentalPriceStringified,

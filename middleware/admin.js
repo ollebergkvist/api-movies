@@ -1,5 +1,6 @@
 module.exports = function (req, res, next) {
-	if (req.user.admin !== 'admin') {
+	if (req.user.admin !== true) {
+		// Ändrat här
 		res.status(401).send({
 			type: 'Error',
 			source: req.url,

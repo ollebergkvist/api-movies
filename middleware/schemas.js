@@ -26,8 +26,7 @@ const schemas = {
 		stock: Joi.number().required(),
 		rental_price: Joi.number().required(),
 		sales_price: Joi.number().required(),
-		availability: Joi.string().required(),
-		image: Joi.string(),
+		availability: Joi.boolean().required(),
 	}),
 	put: Joi.object({
 		title: Joi.string(),
@@ -35,7 +34,7 @@ const schemas = {
 		stock: Joi.number(),
 		rental_price: Joi.number(),
 		sales_price: Joi.number(),
-		availability: Joi.boolean(),
+		availability: Joi.boolean(), // Check this one
 	}).min(1),
 	search: Joi.object({
 		title: Joi.string().required(),
@@ -55,14 +54,14 @@ const schemas = {
 	register: Joi.object({
 		email: Joi.string().email().required(),
 		password: passwordComplexity(complexityOptions).required(),
-		admin: Joi.string(),
+		admin: Joi.boolean(), // Uppdatera denna
 	}),
 	login: Joi.object({
 		email: Joi.string().email().required(),
 		password: Joi.string().required(),
 	}),
 	updateUser: Joi.object({
-		admin: Joi.string().required(),
+		admin: Joi.boolean().required(), //Updatera denna
 	}),
 };
 module.exports = schemas;

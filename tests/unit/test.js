@@ -121,7 +121,7 @@ describe('POST /register', () => {
 		let user = {
 			email: 'admin@example.com',
 			password: 'Password#1',
-			admin: 'admin',
+			admin: true,
 		};
 
 		chai
@@ -345,16 +345,6 @@ describe('GET /movies', () => {
 				done();
 			});
 	});
-	// it('should get 404', (done) => {
-	// 	chai
-	// 		.request(server)
-	// 		.get('/api/movies?sort=title&page=1')
-	// 		.end((err, res) => {
-	// 			res.should.have.status(404);
-	// 			res.body.should.be.an('object');
-	// 			done();
-	// 		});
-	// });
 });
 
 describe('GET /admin/movies', () => {
@@ -396,7 +386,7 @@ describe('GET /movies/:id', () => {
 });
 
 describe('GET /admin/movies/:id', () => {
-	it('should get 404 as admin was not logged in', (done) => {
+	it('should get 401 as admin was not logged in', (done) => {
 		chai
 			.request(server)
 			.get(`/api/admin/movies/${movieID}`)
@@ -455,7 +445,7 @@ describe('GET /admin/search', () => {
 				done();
 			});
 	});
-	it('should get 401 as admin was not logged in', (done) => {
+	it('should get 401 as user token was sent', (done) => {
 		chai
 			.request(server)
 			.get('/api/admin/search')
@@ -521,7 +511,7 @@ describe('POST /movies', () => {
 			stock: 5,
 			rental_price: 10,
 			sales_price: 5,
-			availability: 'true',
+			availability: true,
 		};
 		chai
 			.request(server)
@@ -556,7 +546,7 @@ describe('PUT /movies', () => {
 			stock: 5,
 			rental_price: 10,
 			sales_price: 5,
-			availability: 'true',
+			availability: true,
 		};
 		chai
 			.request(server)
@@ -577,7 +567,7 @@ describe('PUT /movies', () => {
 			stock: 5,
 			rental_price: 10,
 			sales_price: 5,
-			availability: 'true',
+			availability: true,
 		};
 		chai
 			.request(server)
@@ -815,7 +805,7 @@ describe('PUT users', () => {
 
 	it('should get 400 as user id is invalid', (done) => {
 		let admin = {
-			admin: 'admin',
+			admin: true,
 		};
 		chai
 			.request(server)
@@ -831,7 +821,7 @@ describe('PUT users', () => {
 
 	it('should get 200 as token is set and user has admin rights', (done) => {
 		let admin = {
-			admin: 'admin',
+			admin: true,
 		};
 		chai
 			.request(server)

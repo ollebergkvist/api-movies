@@ -6,7 +6,7 @@ const userSchema = new schema(
 		email: { type: String, unique: true, required: true },
 		password: { type: String, required: true },
 		penalty: { type: Number },
-		admin: { type: String, default: 'user' },
+		admin: { type: Boolean, default: false },
 		favorites: [
 			{
 				movieID: { type: String },
