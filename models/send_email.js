@@ -2,7 +2,7 @@
 const nodemailer = require('nodemailer');
 const smtpTransport = require('nodemailer-sendgrid-transport');
 
-const sendEmail = async (email, verificationCode, res) => {
+const sendEmail = async (email, verificationCode, req, res) => {
 	// Auth for send grid transport
 	const options = {
 		auth: {
