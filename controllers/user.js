@@ -115,7 +115,7 @@ const register = async (req, res) => {
 			email: req.body.email,
 			password: hashedPassword,
 			admin: req.body.admin,
-			uniqueString: randomToken(16),
+			verificationCode: randomToken(16),
 		});
 
 		// Checks if email address is registered already
@@ -133,7 +133,7 @@ const register = async (req, res) => {
 			await newUser.save();
 
 			// Sends confirmation email
-			await sendEmail(newUser.email, newUser.uniqueString, res);
+			await sendEmail(newUser.email, newUser.verificationCode, res);
 
 			// Returns status and body
 			return res.status(201).send({
@@ -158,10 +158,12 @@ const register = async (req, res) => {
 // Controller for verify
 const verify = async (req, res) => {
 	try {
-		const { uniqueString } = req.params;
+		const { verificationCode } = req.params;
 
 		// Try to find a user with given email
-		const user = await userSchema.findOne({ uniqueString: uniqueString });
+		const user = await userSchema.findOne({
+			verificationCode: verificationCode,
+		});
 
 		// Error handling if a user with given email was not found
 		if (!user) {
@@ -174,7 +176,7 @@ const verify = async (req, res) => {
 			});
 		} else {
 			user.isActivated = true;
-			user.uniqueString = undefined;
+			user.verificationCode = undefined;
 			await user.save();
 
 			return res.status(201).send({

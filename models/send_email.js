@@ -2,7 +2,7 @@
 const nodemailer = require('nodemailer');
 const smtpTransport = require('nodemailer-sendgrid-transport');
 
-const sendEmail = async (email, uniqueString, res) => {
+const sendEmail = async (email, verificationCode, res) => {
 	// Auth for send grid transport
 	const options = {
 		auth: {
@@ -21,7 +21,7 @@ const sendEmail = async (email, uniqueString, res) => {
 		text:
 			'Click:\n\n' +
 			'https://api-movies-ollebergkvist.herokuapp.com/api/reset/' +
-			uniqueString +
+			verificationCode +
 			'\n\n' +
 			'here to verify your email. Thank you.\n',
 	};
