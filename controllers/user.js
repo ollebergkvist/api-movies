@@ -133,7 +133,7 @@ const register = async (req, res) => {
 			await newUser.save();
 
 			// Sends confirmation email
-			await sendEmail(newUser.email, newUser.uniqueString);
+			await sendEmail(newUser.email, newUser.uniqueString, res);
 
 			// Returns status and body
 			return res.status(201).send({
