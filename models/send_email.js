@@ -2,7 +2,7 @@
 const nodemailer = require('nodemailer');
 const smtpTransport = require('nodemailer-sendgrid-transport');
 
-const sendEmail = async (email, verificationCode, req, res) => {
+const sendEmail = async (email, verificationCode, path, res) => {
 	// Auth for send grid transport
 	const options = {
 		auth: {
@@ -29,20 +29,9 @@ const sendEmail = async (email, verificationCode, req, res) => {
 	// Sends email
 	await transport.sendMail(message, (error, result) => {
 		if (error) {
-			res.status(400).send({
-				status: '400',
-				type: 'Error',
-				source: req.path,
-				title: 'SendGrid error',
-				detail: error,
-			});
+			return false;
 		} else {
-			res.status(201).send({
-				status: '201',
-				type: 'Success',
-				source: req.path,
-				detail: 'Password successfully updated',
-			});
+			return true;
 		}
 	});
 };

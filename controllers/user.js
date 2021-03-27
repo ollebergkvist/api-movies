@@ -92,6 +92,8 @@ const getUser = async (req, res) => {
 // Controller for registering account
 const register = async (req, res) => {
 	const saltRounds = 10;
+	const path = req.path;
+	const result = res;
 
 	// Try to hash password
 	try {
@@ -132,15 +134,47 @@ const register = async (req, res) => {
 			// Saves new user
 			await newUser.save();
 
-			// Sends confirmation email
-			await sendEmail(newUser.email, newUser.verificationCode, req, res);
+			// Auth for send grid transport
+			const options = {
+				auth: {
+					api_key: process.env.SENDGRID_API,
+				},
+			};
 
-			// Returns status and body
-			return res.status(201).send({
-				status: '201',
-				type: 'Success',
-				source: req.path,
-				detail: 'Registration succeeded',
+			// SMTP setup
+			const transport = nodemailer.createTransport(smtpTransport(options));
+
+			// Message
+			const message = {
+				to: newUser.email,
+				from: 'hello@ollebergkvist.com',
+				subject: 'Email confirmation',
+				text:
+					'Click:\n\n' +
+					'https://api-movies-ollebergkvist.herokuapp.com/api/reset/' +
+					newUser.verificationCode +
+					'\n\n' +
+					'here to verify your email. Thank you.\n',
+			};
+
+			// Sends email
+			await transport.sendMail(message, (error, result) => {
+				if (error) {
+					return res.status(400).send({
+						status: '400',
+						type: 'Error',
+						source: path,
+						title: 'SendGrid error',
+						detail: error,
+					});
+				} else {
+					return res.status(201).send({
+						status: '201',
+						type: 'Success',
+						source: req.path,
+						detail: 'Registration succeeded',
+					});
+				}
 			});
 		}
 	} catch (err) {

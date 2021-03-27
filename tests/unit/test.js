@@ -110,6 +110,7 @@ describe('POST /register', () => {
 			.post('/api/register')
 			.send(user)
 			.end((err, res) => {
+				console.log(res.body);
 				res.should.have.status(201);
 				res.body.should.be.an('object');
 
@@ -129,6 +130,7 @@ describe('POST /register', () => {
 			.post('/api/register')
 			.send(user)
 			.end((err, res) => {
+				console.log(res.body);
 				res.should.have.status(201);
 				res.body.should.be.an('object');
 

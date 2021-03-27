@@ -127,3 +127,36 @@
 {"level":"info","date":"2021-3-26 16:54:34","type":"Movie title, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
 {"level":"info","date":"2021-3-26 16:54:36","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
 {"level":"info","date":"2021-3-26 16:54:36","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:0:33","type":"Movie title, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-26 17:0:33","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:0:33","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:3:1","type":"Movie title, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-26 17:3:1","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:3:1","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:3:9","type":"Movie title, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-26 17:3:10","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:3:10","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:11:33","type":"Movie title, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-26 17:11:33","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:11:33","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:12:5","type":"Movie title, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-26 17:12:6","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:12:6","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:13:6","type":"Movie title, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-26 17:13:6","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:13:6","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:14:46","type":"Movie title, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-26 17:14:47","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:14:47","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:16:18","type":"Movie title, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-26 17:16:18","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:16:18","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:17:39","type":"Movie title, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-26 17:17:39","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:17:39","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:18:29","type":"Movie title, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-26 17:18:30","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:18:30","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:19:42","type":"Movie title, sales and rental price update","title":"newtitle","sales_price":"5","rental_price":"10"}
+{"level":"info","date":"2021-3-26 17:19:42","type":"Order confirmation","category":"Rental","customer":"test@example.com","title":"newtitle","copies":"1"}
+{"level":"info","date":"2021-3-26 17:19:42","type":"Order confirmation","category":"Purchase","customer":"test@example.com","title":"newtitle","copies":"1"}
